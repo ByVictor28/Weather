@@ -1,0 +1,22 @@
+@import "../../../App.scss";
+.Card{
+    background: $card;
+    border-radius: 0.5rem;
+}
+
+.CardWather{
+    @extend .Card;
+    padding: 1rem;
+    width: 12rem;
+    height: 16rem;
+    text-align: center;
+    @include flexCenter(column,space-around);
+    
+    img{
+        width: 80%;
+        margin: 0 auto;
+    }
+    div{
+        @include flexCenter(row,space-around)
+    }
+}

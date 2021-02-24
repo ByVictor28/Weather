@@ -1,0 +1,26 @@
+@import "../CardSmall.module.scss";
+@import "../../../../App.scss";
+.BigCard{
+    @extend .Card;
+    width: 30rem;
+    padding: 1rem 3rem;
+    @include flexCenter(column,space-around);
+    align-items: center;
+    span{
+        display: block;
+    }
+
+    .Details strong{
+        font-size: 7rem;
+    }
+    .Details{
+        font-size: 3rem;
+        @include flexCenter(row,center);
+        align-items: center;
+    }
+
+    button{
+        width: 5rem;
+    }
+
+}

@@ -1,0 +1,24 @@
+@import "../../App.scss";
+.Main{
+    background: $background;
+    flex: 1 1 auto;
+    padding: 2rem 8rem;
+    .Control{
+        // background: red;
+        text-align: end;
+        button{
+            margin: 0rem 1rem 1rem 1rem;
+        }
+    }
+    .List{
+        @include flexCenter(row, space-between);
+        gap: 1rem;
+    }
+
+    .ListHightlights{
+        @include flexCenter(row, space-around);
+        gap: 1rem;
+    }
+
+    
+}

@@ -1,0 +1,29 @@
+@import "../../../App.scss";
+
+.ProgresBar{
+    background: whitesmoke;
+    width: 100%;
+    height: 1rem;
+    border-radius: 1rem;
+
+    position: relative;
+    
+    .Labels{
+        position: absolute;
+        top: -1.7rem;
+        width: 100%;
+        // background: red;
+        
+        @include flexCenter(row,space-between);
+        span{
+            display: inline-block;
+            // background: black;
+            font-size: 1.4rem;
+        }
+    }
+}
+.Progres{
+    background: #FFEC65;
+    height: 1rem;
+    border-radius: 1rem;
+}

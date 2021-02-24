@@ -3,9 +3,21 @@ $background:#100E1D;
 $card:#1E213A;
 $subtext:#A09FB1;
 
+@mixin LaptopMQ {
+    @media (max-width: 1024px) {
+        @content;
+    };
+}
+
 @mixin flexCenter($direccion,$justify) {
     display: flex;
     flex-wrap: wrap;
     flex-direction: $direccion;
     justify-content: $justify;
+}
+.App{
+    display: flex;
+    @include LaptopMQ(){
+        flex-direction: column;
+    }
 }

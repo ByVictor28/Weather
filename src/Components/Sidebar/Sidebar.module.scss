@@ -2,8 +2,8 @@
 
 .Sidebar{
     background: $card;
-    height: 100vh;
-    width: 40rem;
+    width: 34rem;
+    min-height: 100vh;
     padding: 2rem 2rem 3rem 2rem ;
     @include flexCenter(column,space-between);
     text-align: center;
@@ -36,6 +36,10 @@
             display: block;
             margin-bottom: 1.5rem;
         }
+    }
+
+    @include LaptopMQ{
+        width: 100%;
     }
 }
 
