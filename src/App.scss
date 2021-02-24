@@ -1,0 +1,11 @@
+$button:#6E707A;
+$background:#100E1D;
+$card:#1E213A;
+$subtext:#A09FB1;
+
+@mixin flexCenter($direccion,$justify) {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: $direccion;
+    justify-content: $justify;
+}

@@ -1,0 +1,44 @@
+@import "../../App.scss";
+
+.Sidebar{
+    background: $card;
+    height: 100vh;
+    width: 40rem;
+    padding: 2rem 2rem 3rem 2rem ;
+    @include flexCenter(column,space-between);
+    text-align: center;
+    background-position: -17rem 5rem;
+    background-repeat: no-repeat;
+    background-blend-mode:soft-light;
+    span{
+        color: $subtext;
+    }
+    img{
+        width: 25rem;
+        height: 25rem;
+        object-fit: contain;
+        margin: 0 auto;
+    }
+    .grades{
+        color: white;
+        font-size: 7.5rem;
+    }
+    .temperature{
+        font-size: 3.5rem;
+    }
+    .deteil{
+        font-weight: 700;
+        font-size: 2rem;
+        // letter-spacing: .5rem;
+    }
+    .footer{
+        .fecha{
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+    }
+}
+
+.Menu{
+    @include flexCenter(row,space-between)
+}
