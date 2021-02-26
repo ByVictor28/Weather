@@ -19,4 +19,8 @@
     div{
         @include flexCenter(row,space-around)
     }
+    .Buttom{
+        color: gray;
+    }
+    
 }

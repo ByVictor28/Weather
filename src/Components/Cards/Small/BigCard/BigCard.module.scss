@@ -19,8 +19,18 @@
         align-items: center;
     }
 
-    button{
-        width: 5rem;
+    .Footer{
+        width: 100%;
+        @include flexCenter(row,center);
+        align-items: center;
+        gap: 1rem;
+        button{
+            width: 5rem;
+            display: inline;
+        }
     }
+
+    
+    
 
 }

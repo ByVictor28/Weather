@@ -1,12 +1,14 @@
 import React from 'react'
 import classes from "./BigCard.module.scss"
 
-const BigCard = ({children})=>{ 
+const BigCard = ({children,title,number,units})=>{ 
 return (
     <div className={classes.BigCard}>
-        <span>Wind Status</span>
-        <span className={classes.Details}><strong>7</strong>mph</span>
-        {children}
+        <span>{title}</span>
+        <span className={classes.Details}><strong>{number}</strong>{units}</span>
+        <div className={classes.Footer}>
+            {children}
+        </div>
     </div>
 ) 
 }

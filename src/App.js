@@ -2,19 +2,54 @@ import axios from 'axios';
 import './App.scss';
 import Main from './Components/Main/Main';
 import Sidebar from './Components/Sidebar/Sidebar';
+import {useEffect,useState} from "react";
+
 
 function App() {
+  const [current, setCurrent] = useState({icon:"10d"});
+  const [daily, setDaily] = useState([]);
+  const [hightlights, setHightlights] = useState({wind:{}})
+  const [units, setUnits] = useState("metric");
 
   useEffect(() => {
-    axios.get()
-    return () => {
-      cleanup
-    }
-  }, [input])
+    axios.get(`${process.env.REACT_APP_API_URL}city?city=London&units=${units}`)
+    .then((result) => {
+      console.log(result);
+      setCurrent(result.data.current);
+      setDaily(result.data.daily);
+      setHightlights(result.data.Hightlights);
+    }).catch((error) => {
+
+      console.log("error: ",error.message);
+
+    });
+  }, [units])
+
+ const requestWeatherByCoords = () => {
+    let lat;
+    let lon;
+    navigator.geolocation.getCurrentPosition(function(position) {
+      // console.log("Latitude is :", position.coords.latitude);
+      // console.log("Longitude is :", position.coords.longitude);
+      lat = position.coords.latitude;
+      lon = position.coords.longitude;
+
+      axios.get(`${process.env.REACT_APP_API_URL}coords?lat=${lat}&lon=${lon}&units=${units}`)
+      .then((result) => {
+        console.log(result);
+        setCurrent(result.data.current);
+        setDaily(result.data.daily);
+        setHightlights(result.data.Hightlights);
+      }).catch((error) => {
+        console.log("error: ",error.message);
+      });
+    });
+ }
+
   return (
     <div className="App">
-      <Sidebar/>
-      <Main/>
+      <Sidebar click={requestWeatherByCoords} currentWeather={current} units={units}/>
+      <Main daily={daily} wind={hightlights.wind} humidity={hightlights.humidity} visibility={hightlights.visibility} pressure={hightlights.pressure} />
     </div>
   );
 }

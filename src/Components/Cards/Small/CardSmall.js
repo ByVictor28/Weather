@@ -1,14 +1,14 @@
 import React from 'react'
 import classes from "./CardSmall.module.scss"
 
-const CardSmall = ({small})=>{ 
+const CardSmall = ({date,icon,top,buttom})=>{ 
 return (
     <div className={`${classes.CardWather}`}>
-        <span>Yesterday</span>
-        <img src="/images/Snow.png" alt=""/>
+        <span>{date}</span>
+        <img src={`https://openweathermap.org/img/wn/${icon}@2x.png`} alt=""/>
         <div>
-            <span>11°C</span>
-            <span>12°C</span>
+            <span>{top}</span>
+            <span className={classes.Buttom}>{buttom}</span>
         </div>
     </div>
 ) 
