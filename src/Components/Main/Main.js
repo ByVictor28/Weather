@@ -5,15 +5,13 @@ import ProgresBar from '../UI/Bar/ProgresBar'
 import Button from '../UI/Buttons/ButtonRec/Button'
 import classes from "./Main.module.scss"
 
-const Main = ({daily,wind,humidity,visibility,pressure})=>{
+const Main = ({daily,wind,humidity,visibility,pressure,click})=>{
     
-    const windDegrees = -45;
- 
 return (
     <div className={classes.Main}>
         <div className={classes.Control}>
-            <Button round>°F</Button>
-            <Button round>°C</Button>
+            <Button round click={() => {click("imperial")}}>°F</Button>
+            <Button round click={() => {click("metric")}}>°C</Button>
         </div>
         <div className={classes.List}>
             {daily.map((day,index) => {
@@ -27,6 +25,9 @@ return (
                         buttom={day.buttom}
                     />
                     )
+                }
+                else{
+                    return null
                 }
             })}
         </div>

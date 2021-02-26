@@ -49,7 +49,14 @@ function App() {
   return (
     <div className="App">
       <Sidebar click={requestWeatherByCoords} currentWeather={current} units={units}/>
-      <Main daily={daily} wind={hightlights.wind} humidity={hightlights.humidity} visibility={hightlights.visibility} pressure={hightlights.pressure} />
+      <Main 
+        daily={daily} 
+        wind={hightlights.wind} 
+        humidity={hightlights.humidity} 
+        visibility={hightlights.visibility} 
+        pressure={hightlights.pressure} 
+        click={(units) => {setUnits(units);}}
+      />
     </div>
   );
 }
