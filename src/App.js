@@ -10,20 +10,18 @@ function App() {
   const [daily, setDaily] = useState([]);
   const [hightlights, setHightlights] = useState({wind:{}})
   const [units, setUnits] = useState("metric");
+  const [city, setCity] = useState("London");
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}city?city=London&units=${units}`)
+    axios.get(`${process.env.REACT_APP_API_URL}city?city=${city}&units=${units}`)
     .then((result) => {
-      console.log(result);
       setCurrent(result.data.current);
       setDaily(result.data.daily);
       setHightlights(result.data.Hightlights);
     }).catch((error) => {
-
-      console.log("error: ",error.message);
-
+      alert("City not found")
     });
-  }, [units])
+  }, [units,city])
 
  const requestWeatherByCoords = () => {
     let lat;
@@ -36,7 +34,6 @@ function App() {
 
       axios.get(`${process.env.REACT_APP_API_URL}coords?lat=${lat}&lon=${lon}&units=${units}`)
       .then((result) => {
-        console.log(result);
         setCurrent(result.data.current);
         setDaily(result.data.daily);
         setHightlights(result.data.Hightlights);
@@ -45,10 +42,14 @@ function App() {
       });
     });
  }
+ 
+  const resiveCityFromAside = (e) => {
+    setCity(e)
+  }
 
   return (
     <div className="App">
-      <Sidebar click={requestWeatherByCoords} currentWeather={current} units={units}/>
+      <Sidebar click={requestWeatherByCoords} currentWeather={current} units={units} resiveCity={resiveCityFromAside}/>
       <Main 
         daily={daily} 
         wind={hightlights.wind} 
