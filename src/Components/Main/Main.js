@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState}from 'react'
 import BigCard from '../Cards/Small/BigCard/BigCard'
 import CardSmall from '../Cards/Small/CardSmall'
 import ProgresBar from '../UI/Bar/ProgresBar'
@@ -7,11 +7,24 @@ import classes from "./Main.module.scss"
 
 const Main = ({daily,wind,humidity,visibility,pressure,click})=>{
     
+    const [metricalActive, setMetricalActive] = useState(true)
+
+    const changeToImperial = () => {
+        setMetricalActive(false);
+        click("imperial");
+        
+    }
+    
+    const changeToMetric = () => {
+        setMetricalActive(true);
+        click("metric");
+        
+    }
 return (
     <div className={classes.Main}>
         <div className={classes.Control}>
-            <Button round click={() => {click("imperial")}}>°F</Button>
-            <Button round click={() => {click("metric")}}>°C</Button>
+            <Button round click={changeToImperial} active={metricalActive===false} >°F</Button>
+            <Button round click={changeToMetric} active={metricalActive===true} >°C</Button>
         </div>
         <div className={classes.List}>
             {daily.map((day,index) => {
@@ -42,7 +55,7 @@ return (
                 <ProgresBar porcentage={humidity}/>
             </BigCard>
             
-            <BigCard title="Visibility" number={visibility} units=" miles"/>
+            <BigCard title="Visibility" number={visibility} units="miles"/>
             
             <BigCard title="Air Pressure" number={pressure} units="mb"/>
         </div>

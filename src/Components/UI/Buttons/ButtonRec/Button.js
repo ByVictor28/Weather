@@ -1,9 +1,9 @@
 import React from 'react'
 import classes from "./Button.module.scss"
 
-const Button = ({children,round,click})=>{ 
+const Button = ({children,round,click,active})=>{ 
 return (
-    <button className={`${classes.Button} ${round?classes.Round:""}`} onClick={click}>
+    <button className={`${classes.Button} ${round?classes.Round:""} ${active?classes.Active:""}`} onClick={click}>
         {children}
     </button>
 ) 

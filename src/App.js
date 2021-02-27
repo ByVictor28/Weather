@@ -20,6 +20,7 @@ function App() {
       setHightlights(result.data.Hightlights);
     }).catch((error) => {
       alert("City not found")
+      setCity("London")
     });
   }, [units,city])
 

@@ -7,7 +7,7 @@
     padding: 2rem 2rem 3rem 2rem ;
     @include flexCenter(column,space-between);
     text-align: center;
-    background-position: -17rem 5rem;
+    background-position: -21rem 5rem;
     background-repeat: no-repeat;
     background-blend-mode:soft-light;
     position: relative;
@@ -42,6 +42,8 @@
 
     @include LaptopMQ{
         width: 100%;
+        background-position: 12rem 0rem;
+        background-repeat: repeat;
     }
 }
 

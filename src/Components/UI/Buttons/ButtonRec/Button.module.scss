@@ -5,7 +5,20 @@
     background: $button;
     border: none;
     color: white;
+    transition: background 1s ease;
 }
+.Button:hover{
+    background: rgb(161, 160, 160);
+}
+
+.Active{
+    background: yellowgreen;
+    transition: background 1s ease;
+}
+.Active:hover{
+    background: rgb(186, 248, 62);
+}
+
 
 .Round{
     padding: 1rem 1.2rem;
