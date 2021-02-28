@@ -46,7 +46,7 @@ return (
         </div>
         <h1>Today's Hightlights</h1>
         <div className={classes.ListHightlights}>
-            <BigCard title="Wind Status" number={wind.pressure} units="mph">
+            <BigCard title="Wind Status" number={wind.pressure} units={metricalActive===true?"mt/s":"ml/h"}>
                 <Button round><i style={{transform: `rotate(${-225 + wind.deg}deg)`}} className="fas fa-location-arrow"></i></Button>
                 <span>WSW</span>
             </BigCard>

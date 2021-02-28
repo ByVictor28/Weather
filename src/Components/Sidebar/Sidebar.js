@@ -4,7 +4,9 @@ import classes from "./Sidebar.module.scss"
 
 const Sidebar = ({click,currentWeather,units,resiveCity})=>{ 
 
-    const [menuOpen, setMenuOpen] = useState(false)
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [CityHistori, setCityHistori] = useState(["Mexico","Zacatecas","London"]);
+
     const [city, setCity] = useState("");
 
     const OpenMenu = ()=> {
@@ -14,6 +16,11 @@ const Sidebar = ({click,currentWeather,units,resiveCity})=>{
         setMenuOpen(false);
     }
     const sendCity = () => {
+        setCityHistori([...CityHistori,city])
+        setMenuOpen(false)
+        resiveCity(city);
+    }
+    const sendSpecific = (city) => {    
         setMenuOpen(false)
         resiveCity(city);
     }
@@ -36,6 +43,11 @@ return (
             <div className={`${classes.input} `}>
                 <input type="text" placeholder="Seach for a city" value={city} onChange={(e) => setCity(e.target.value)}/>
                 <Button click={sendCity}>Seach</Button>
+            </div>
+            <div className={classes.ListaCity}>
+                {CityHistori.map((city,index) => {
+                    return <span key={index} onClick={() => {sendSpecific(city)}}>{city}</span>
+                })}
             </div>
         </div>
     </div>

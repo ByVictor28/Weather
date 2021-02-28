@@ -23,6 +23,7 @@ function App() {
       setCity("London")
     });
   }, [units,city])
+  
 
  const requestWeatherByCoords = () => {
     let lat;
